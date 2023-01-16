@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"> <!--подключение шаблонизатора thymeleaf-->
+<head>
+    <title>Подборки</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"> <!--подключение файлов css-->
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+<div class="container mt-5">
+    <!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
+    <h1>Подборки блюд от шефа</h1>
+    <div sec:authorize="hasAuthority('MANAGER')">
+        <div class="btn-group">
+            <a th:href="'/compilations/add'" class="btn an" style="color: #fff; background-color: #ef2323; border-color: #ef2323">Добавить подборку</a>
+        </div>
+    </div>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col an" th:each="el : ${compilations}" >
+                    <div class="card shadow-sm blocks">
+                        <img class="himg" th:src="${el.img}">
+                        <div class="card-body">
+                            <p th:text="${el.title}"></p>
+                        </div>
+                        <div class="btn-cont" style="  padding-bottom: 20px; padding-left: 20px;">
+                            <a th:href="'/compilations/' + ${el.id}" class="btn" style="color: #fff; background-color: #ef2323; border-color: #ef2323">Детальнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+</body>
+</html>
