@@ -8,6 +8,13 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
+<style>
+.img {
+height: 300px
+width: 100%;
+object-fit: cover;
+}
+</style>
 <!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
 <div class="container mt-5">
     <!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
@@ -28,6 +35,7 @@
                         </div>
                         <div class="btn-cont" style="  padding-bottom: 20px; padding-left: 20px;">
                             <a th:href="'/compilations/' + ${el.id}" class="btn" style="color: #fff; background-color: #ef2323; border-color: #ef2323">Детальнее</a>
+
                         </div>
                     </div>
                 </div>

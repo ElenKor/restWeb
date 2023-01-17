@@ -6,6 +6,13 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--подключение css файла-->
 </head>
+<style>
+.img {
+height: 300px
+width: 100%;
+object-fit: cover;
+}
+</style>
 <body>
 <header th:insert="blocks/header :: header"></header>
 <!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->

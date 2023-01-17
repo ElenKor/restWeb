@@ -30,7 +30,7 @@
                         $(item).fadeOut('fast', function() {
                             $(item).appendTo($('#allFacets')).fadeIn('slow');
                         });
-                    }
+                    }e
                 });
         });
     </script>
@@ -81,6 +81,11 @@
         border: 1px solid orange;
         background-color: #fffffd;
     }
+    .img {
+    height: 300px
+    width: 100%;
+    object-fit: cover;
+}
 </style>
 <body>
 <header th:insert="blocks/header :: header"></header>
