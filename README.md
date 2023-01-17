@@ -2,7 +2,7 @@
 <h1 align="center">Hi there, I'm Elina</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h3 align="center">Software programming student from Russia 🇷🇺</h3>
-!(https://mir-s3-cdn-cf.behance.net/project_modules/fs/06ef2714054737.55dc90bad8243.jpg)
+
 
 Данный проект сделан в рамках курсовой работы в университете, он позволяет осуществлять управление меню сотрудниками ресторана или иного заведения общепита.
 
