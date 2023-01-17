@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"> <!--подключение шаблонизатора thymeleaf-->
+<head>
+    <title>Назначение</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css"> <!--подключение файлов css-->
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+<div class="container mt-5">
+    <!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
+    <h1>Назначение сотрудников</h1>
+    <div class="album py-5 bg-light">
+        <ul class="menu">
+            <th:block th:each="us : ${registered}">
+                <b th:text="${us.username}"></b>
+                <form th:action="'/us/makeManager/' + ${us.id}" method="post"> <!--method="post" - информация передаётся в теле запроса-->
+                    <button th:action="'/us/makeManager/' + ${us.id}" method="post" class="btn btn-warning" style="color: #fff; background-color: #ef2323; border-color: #ef2323" type="submit">Назначить менеджером</button><!--type="submit" - перезагрузка страницы и отправка данных на сервер при нажатии на кнопку-->
+                </form>
+                <form th:action="'/us/makeChief/' + ${us.id}" method="post"> <!--method="post" - информация передаётся в теле запроса-->
+                    <button th:action="'/us/makeChief/' + ${us.id}" method="post" class="btn btn-warning" style="color: #fff; background-color: #ef2323; border-color: #ef2323" type="submit">Назначить шеф-поваром</button> <!--type="submit" - перезагрузка страницы и отправка данных на сервер при нажатии на кнопку-->
+                </form>
+            </th:block>
+        </ul>
+    </div>
+</div>
+<!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"> <!--подключение шаблонизатора thymeleaf-->
+<head>
+    <title>Новое блюдо</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<style>
+.img {
+height: 300px
+width: 100%;
+object-fit: cover;
+}
+</style>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+    <div class="container mt-5 mb-5"> <!--mt-5 - отступ сверху. mb-5 - отступ снизу-->
+        <!--container - встроенный класс, добавляющий отступы. mt-5 - отступы сверху, равные 5-ти пикс-->
+        <h1>Добавление блюда</h1>
+        <form action="/dishes/add" method="post"> <!--форма для добавления статьи. action - страница, на которой будет происходить обработка самой формы
+        method - метод предачи данных (post - скрытая передача данных на сервер. get - с отображением в url адресе)-->
+            <input type="text" name="img" placeholder="Вставьте ссылку на изображение" class="form-control"><br>
+            <input type="text" name="title" placeholder="Введите название блюда" class="form-control"><br><!--ввод текста. name="title" - ввод названий статьи. placeholder - подсказка. class="form-control" - класс bootstrap-->
+            <input type="text" name="calories" placeholder="Введите калорийность блюда(в ккал)" class="form-control"><br>
+            <textarea id="summernote" name="fullText" class="form-control"></textarea><br>
+            <p>Введите список ингредиентов:</p>
+            <div id="ingr">
+                <input style="width: 270px" type="text" name="ingredients" placeholder="Введите название ингредиента" class="form-control">
+            </div><br>
+
+            <button onclick="addFields()" id="add" type="button" style="color: #fff; background-color: #ef2323; border-color: #ef2323">Добавить ингредиент</button><br><br>
+            <button type="submit" class="btn" style="color: #fff; background-color: #ef2323; border-color: #ef2323">Добавить блюдо</button> <!--type="submit" - при нажатии на кнопку страница перезагружается и данные отправляются на сервер. class="btn btn-success" - класс bootstrap-->
+            <script type="text/javascript">
+                function addFields() {
+                    var br = document.createElement('br');
+                    var div = document.createElement('div');
+                    div.style.display = 'inline-block';
+                    var name = document.createElement('input');
+                    name.style.width = '270px';
+                    name.type = 'text';
+                    name.name = 'ingredients';
+                    name.placeholder = 'Введите название ингредиента';
+                    name.className = 'form-control';
+                    div.appendChild(name);
+                    div.appendChild(br);
+                    ingr.appendChild(br);
+                    ingr.appendChild(div);
+                    ingr.appendChild(br);
+                }
+            </script>
+        </form>
+    </div>
+    <script>
+      $('#summernote').summernote({
+            placeholder: 'Введите полный текст описания блюда',
+            tabsize: 2,
+            height: 300,
+            minHeight: 300,
+            toolbar:[
+             ['style', ['style']],
+             ['insert',['picture','link','video','table']],
+             ['style',['bold','italic','underline', 'clear']],
+             ['font', ['strikethrough', 'superscript', 'subscript']],
+             ['fontsize', ['fontsize','fontname']],
+             ['color', ['color']],
+             ['para', ['ul', 'ol', 'paragraph']],
+             ['height', ['height', 'codeview', 'fullscreen', 'help']]]
+          });
+    </script>
+<!--insert - встраивает фрагмент внутрь тега "путь :: фрагмент"-->
+</body>
+</html>
