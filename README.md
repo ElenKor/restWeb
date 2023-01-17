@@ -1,7 +1,7 @@
 # restWeb
-<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Daniil</a> 
+<h1 align="center">Hi there, I'm Elina</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">Computer science student, IT news writer from Russia 🇷🇺</h3>
+<h3 align="center">Software programming student from Russia 🇷🇺</h3>
 Отдельные категории файлов помещены в свои папки: картинки в папку images и стили в папку css. 
 
 В папке templates находятся основные страницы сайта:
